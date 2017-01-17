@@ -1,6 +1,11 @@
 package prob3;
 
 public class Bird {
+	@Override
+	public String toString() {
+		return "Bird [name=" + name + "]";
+	}
+
 	private String name;
 	public Bird() {
 	//	System.out.println("d");

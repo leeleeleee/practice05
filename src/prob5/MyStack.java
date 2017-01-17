@@ -1,25 +1,29 @@
-package prob5;
+	package prob5;
 
-public class MyStack implements Stack {
+public class MyStack<T> implements Stack<T> {
 	int top = -1;
-	String[] str = new String[5];
-	public MyStack() {
+	T[] buffer;
+	public MyStack( int size ) {
+		//buffer = new T[size]; -error
+		buffer = (T[])new Object[ size ];
+		top = -1;
+		
 		
 	}
 
 	@Override
-	public void push(String item) {
+	public void push(T item) {
 		top++;
-		str[top] = item;
+		buffer[top] = item;
 	}
 	
 
 	@Override
-	public String pop() throws MyStackException {
+	public String<T> pop() throws MyStackException {
 			if( top == -1 ){
 				throw new MyStackException();
 			} else {
-				String result = str[top];
+				String result = buffer[top];
 				top--;
 				return result;
 		}
